@@ -27,8 +27,8 @@ public class BookService {
         return bookRepository.save(book);
     }
 
-    public Book editBookDetails(Book book) {
-        return bookRepository.findByIsbn(book.isbn())
+    public Book editBookDetails(String isbn, Book book) {
+        return bookRepository.findByIsbn(isbn)
                 .map(existingBook -> {
                     var bookToUpdate = new Book(
                             existingBook.isbn(),
